@@ -23,7 +23,6 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0F1A22" media="(prefers-color-scheme: dark)">
-<!-- BEACON: click-counter goes here. Pages are standalone (no shared include); paste the same snippet at this marker in every guide <head>. -->
 <style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700;800&family=DM+Sans:wght@400;500;600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
@@ -425,6 +424,16 @@ footer b{color:var(--head);font-family:var(--display);letter-spacing:.06em;text-
   });});
 })();
 </script>
-
+<script>
+(function () {
+  var slug = (location.pathname.replace(/^\/+|\/+$/g, "").split("/")[0] || "").toLowerCase();
+  var c = new URLSearchParams(location.search).get("c") || "";
+  var img = new Image();
+  img.referrerPolicy = "no-referrer";
+  img.src = "https://huemn-lead-connector.bill-abd.workers.dev/g?guide="
+    + encodeURIComponent(slug)
+    + "&c=" + encodeURIComponent(c);
+})();
+</script>
 </body>
 </html>
