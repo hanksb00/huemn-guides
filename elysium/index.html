@@ -762,5 +762,16 @@ footer .tag { font-family: var(--display); font-weight: 700; letter-spacing: 0.1
   });
 })();
 </script>
+<script>
+(function () {
+  var slug = (location.pathname.replace(/^\/+|\/+$/g, "").split("/")[0] || "").toLowerCase();
+  var c = new URLSearchParams(location.search).get("c") || "";
+  var img = new Image();
+  img.referrerPolicy = "no-referrer";
+  img.src = "https://huemn-lead-connector.bill-abd.workers.dev/g?guide="
+    + encodeURIComponent(slug)
+    + "&c=" + encodeURIComponent(c);
+})();
+</script>
 </body>
 </html>

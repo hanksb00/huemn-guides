@@ -424,6 +424,16 @@ footer b{color:var(--head);font-family:var(--display);letter-spacing:.06em;text-
   });});
 })();
 </script>
-
+<script>
+(function () {
+  var slug = (location.pathname.replace(/^\/+|\/+$/g, "").split("/")[0] || "").toLowerCase();
+  var c = new URLSearchParams(location.search).get("c") || "";
+  var img = new Image();
+  img.referrerPolicy = "no-referrer";
+  img.src = "https://huemn-lead-connector.bill-abd.workers.dev/g?guide="
+    + encodeURIComponent(slug)
+    + "&c=" + encodeURIComponent(c);
+})();
+</script>
 </body>
 </html>
